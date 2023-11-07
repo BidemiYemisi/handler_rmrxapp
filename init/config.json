@@ -1,12 +1,12 @@
 {
-    "name": "handler_rmrxapp-python",
+    "name": "handler-rmrxapp",
     "version": "1.0.0",
     "containers": [
         {
-            "name": "handler_rmrxapp-python",
+            "name": "handler-rmrxapp",
             "image": {
                 "registry": "registry.hub.docker.com",
-                "name": "109010/handler_rmrxapp-python",
+                "name": "109010/handler-rmrxapp",
                 "tag": "1.0.0"
             }
         }
@@ -15,24 +15,24 @@
         "ports": [
             {
                 "name": "http",
-                "container": "handler_rmrxapp-python",
+                "container": "handler-rmrxapp",
                 "port": 8080,
                 "description": "http service"
             },
             {
                 "name": "rmrroute",
-                "container": "handler_rmrxapp-python",
+                "container": "handler-rmrxapp",
                 "port": 4561,
-                "description": "rmr route port for handler_rmrxapp-python xapp"
+                "description": "rmr route port for handler-rmrxapp xapp"
             },
             {
                 "name": "rmrdata",
-                "container": "handler_rmrxapp-python",
+                "container": "handler-rmrxapp",
                 "port": 4560,
                 "rxMessages": ["A1_POLICY_REQ"],
                 "txMessages": ["A1_POLICY_RESP", "A1_POLICY_QUERY"],
                 "policies": [20002],
-                "description": "rmr data port for handler_rmrxapp-python"
+                "description": "rmr data port for handler-rmrxapp"
             }
         ]
     },

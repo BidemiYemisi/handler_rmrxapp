@@ -43,4 +43,4 @@ ENV CONFIG_FILE=/tmp/init/config.json
 # ENV DBAAS_SERVICE_HOST=service-ricplt-dbaas-tcp.ricplt.svc.cluster.local
 
 #Run
-CMD run-handler_rmrxapp.py
+CMD run-handler-rmrxapp.py

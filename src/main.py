@@ -55,7 +55,7 @@ def _default_handler(self, summary, sbuf):
     a1_mgr = A1PolicyManager(testxapp)
     a1_mgr.startup() """
     
-def start(thread = False):
+def start():
     """
     This is a convenience function that allows this xapp to run in Docker
     for "real" (no thread, real SDL), but also easily modified for unit testing
@@ -75,7 +75,7 @@ def start(thread = False):
     #a1_mgr.startup()
 
      #self.createHandlers()
-    handler_rmrxapp.run(thread)
+    handler_rmrxapp.run()
     
     
 def stop(self):

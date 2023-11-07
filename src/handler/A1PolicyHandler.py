@@ -18,23 +18,23 @@ class A1PolicyHandler(_BaseHandler):
         try:
             # summary is a dict and it contains loads of things, here I am getting only the RMR_MS_PAYLOAD as dict (json encoded as bytes)
             request = json.loads(summary[rmr.RMR_MS_PAYLOAD])
-            self.logger.debug("Testxapp.A1PolicyHandler.request_handler method says::  Handler processing received request for message type {0}".format(self.msgtype))
-            self.logger.info("Testxapp.A1PolicyHandler.request_handler method says:: Received summary is {0}".format(summary))
-            self.logger.info("Testxapp.A1PolicyHandler.request_handler method says:: Received sbuf is {0}".format(sbuf))
+            self.logger.debug("Handler_rmrxapp.A1PolicyHandler.request_handler method says::  Handler processing received request for message type {0}".format(self.msgtype))
+            self.logger.info("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Received summary is {0}".format(summary))
+            self.logger.info("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Received sbuf is {0}".format(sbuf))
             
         except (json.decoder.JSONDecodeError, KeyError):
             
-            self.logger.error("Testxapp.A1PolicyHandler.request_handler method says:: Handler failed to parse the request (i.e json.loads(summary[rmr.RMR_MS_PAYLOAD])")
+            self.logger.error("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Handler failed to parse the request (i.e json.loads(summary[rmr.RMR_MS_PAYLOAD])")
             return
 
 
         if self.verifyPolicy(request):
             
-            self.logger.info("Testxapp.A1PolicyHandler.request_handler method says:: Request passed verification and handler processed request: {}".format(request))
+            self.logger.info("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Request passed verification and handler processed request: {}".format(request))
         
         else:
             
-            self.logger.error("Testxapp.A1PolicyHandler.request_handler method says:: Request failed verification and handler did not process request: {}".format(request))
+            self.logger.error("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Request failed verification and handler did not process request: {}".format(request))
             return
 
         # Build response
@@ -42,7 +42,7 @@ class A1PolicyHandler(_BaseHandler):
 
         # Send response with new message type
         self._rmr_xapp.rmr_send(json.dumps(response).encode(), Constants.A1_POLICY_RESP)
-        self.logger.info("Testxapp.A1PolicyHandler.request_handler method says:: Response for received request sent. Response is {}".format(response))
+        self.logger.info("Handler_rmrxapp.A1PolicyHandler.request_handler method says:: Response for received request sent. Response is {}".format(response))
 
 
     # check if one of the keys are in the request dict
@@ -54,7 +54,7 @@ class A1PolicyHandler(_BaseHandler):
 
 
     def buildPolicyResp(self, request: dict):
-        request["handler_id"] = "testxapp"  # self._rmr_xapp.config["xapp_name"]
+        request["handler_id"] = "handler_rmrxapp-python"  # self._rmr_xapp.config["xapp_name"]
         del request["operation"]
         request["status"] = "OK"
         return request

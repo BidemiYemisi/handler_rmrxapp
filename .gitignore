@@ -14,3 +14,4 @@
 # Exclude virtual environment directory
 venv/
 .venv
+desktop.ini

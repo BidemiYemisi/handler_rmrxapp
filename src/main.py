@@ -1,7 +1,6 @@
 from os import getenv
 from ricxappframe.xapp_frame import RMRXapp, rmr
 from .utils.constants import Constants
-from .manager.A1PolicyManager import A1PolicyManager
 from .handler.A1PolicyHandler import A1PolicyHandler
 from mdclogpy import Logger
 

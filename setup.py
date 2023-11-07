@@ -24,8 +24,8 @@ def read(fname):
 
 
 setup(
-    name='testxapp-python',
-    version='1.0.1',
+    name='handler_rmrxapp-python',
+    version='1.0.0',
     packages=find_packages(),
     url='https://github.com/BidemiYemisi/ric_xapp.git',
     description="Test XAPP for O-RAN RIC Platform written in python",
@@ -33,6 +33,6 @@ setup(
     python_requires='>=3.8',
     long_description=read('README.md'),
     install_requires=["ricxappframe>=1.1.1,<2.3.0"],
-    entry_points={"console_scripts": ["run-testxapp.py=src.main:start"]},  # adds a magical entrypoint for Docker
+    entry_points={"console_scripts": ["run-handler_rmrxapp.py=src.main:start"]},  # adds a magical entrypoint for Docker
     data_files=[("", ["LICENSE.txt"])],
 )
